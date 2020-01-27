@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>
+     Add your Book page
+ </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+<style>
+    @font-face {
+  font-family: "Poppins-Regular";
+  src: url("../fonts/poppins/Poppins-Regular.ttf"); }
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url("../fonts/poppins/Poppins-SemiBold.ttf"); }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Poppins-Regular";
+  color: #333;
+  font-size: 13px;
+  margin: 0; }
+
+input, textarea, select, button {
+  font-family: "Poppins-Regular";
+  color: #333;
+  font-size: 13px; }
+
+p, h1, h2, h3, h4, h5, h6, ul {
+  margin: 0; }
+
+img {
+  max-width: 100%; 
+max-height: 100%;
+min-height:99%;}
+
+.close{
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 42px;
+  transform: rotate(45deg);
+cursor: pointer; 
+color: #fff; 
+}
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0; }
+
+a:hover {
+  text-decoration: none; }
+
+:focus {
+  outline: none; }
+
+.wrapper {
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center; }
+
+.inner {
+  padding: 20px;
+  background: #fff;
+  max-width: 850px;
+  margin: auto;
+  display: flex; }
+  .inner .image-holder {
+    width: 50%; }
+  .inner form {
+    width: 50%;
+    padding-top: 36px;
+    padding-left: 45px;
+    padding-right: 45px; }
+  .inner h3 {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-family: "Poppins-SemiBold";
+    text-align: center;
+    margin-bottom: 28px; }
+
+.form-group {
+  display: flex; }
+  .form-group input {
+    width: 50%; }
+    .form-group input:first-child {
+      margin-right: 25px; }
+
+.form-wrapper {
+  position: relative; }
+  .form-wrapper i {
+    position: absolute;
+    bottom: 9px;
+    right: 0; }
+
+.form-control {
+  border: 1px solid #333;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  display: block;
+  width: 100%;
+  height: 30px;
+  padding: 0;
+  margin-bottom: 25px; }
+  .form-control::-webkit-input-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins-Regular"; }
+  .form-control::-moz-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins-Regular"; }
+  .form-control:-ms-input-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins-Regular"; }
+  .form-control:-moz-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins-Regular"; }
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-left: 20px; }
+  select option[value=""][disabled] {
+    display: none; }
+
+button {
+  border: none;
+  width: 164px;
+  height: 51px;
+  margin: auto;
+  margin-top: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #333;
+  font-size: 15px;
+  color: #fff;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+  button i {
+    margin-left: 10px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0); }
+  button:hover i, button:focus i, button:active i {
+    -webkit-animation-name: hvr-icon-wobble-horizontal;
+    animation-name: hvr-icon-wobble-horizontal;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1; }
+
+@-webkit-keyframes hvr-icon-wobble-horizontal {
+  16.65% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px); }
+  33.3% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px); }
+  49.95% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px); }
+  66.6% {
+    -webkit-transform: translateX(-2px);
+    transform: translateX(-2px); }
+  83.25% {
+    -webkit-transform: translateX(1px);
+    transform: translateX(1px); }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
+@keyframes hvr-icon-wobble-horizontal {
+  16.65% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px); }
+  33.3% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px); }
+  49.95% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px); }
+  66.6% {
+    -webkit-transform: translateX(-2px);
+    transform: translateX(-2px); }
+  83.25% {
+    -webkit-transform: translateX(1px);
+    transform: translateX(1px); }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
+@media (max-width: 1199px) {
+  .wrapper {
+    background-position: right center; } }
+@media (max-width: 991px) {
+  .inner form {
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px; } }
+@media (max-width: 767px) {
+  .inner {
+    display: block; }
+    .inner .image-holder {
+      width: 100%; }
+    .inner form {
+      width: 100%;
+      padding: 40px 0 30px; }
+
+  button {
+    margin-top: 60px; } }
+
+/*# sourceMappingURL=style.css.map */
+
+</style>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+
+</head>
+<body>
+    <div class="wrapper"  style="background-image: url('https://www.library-management.com/wp-content/themes/library/img/default_holder.jpg')">
+    <div class="inner">
+        <div class="image-holder">
+            <img src="data:image/jpeg;base64,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">
+        </div>
+    <form action="">
+        <h1>Add a Book</h1>
+        <div class="form-wrapper">
+            <input id="title" type="title" placeholder="Title of the Book" class="form-control">
+            <i class="zmdi zmdi-email"></i></div>
+            <div class="form-wrapper">
+            <input id="authors" type="authors" placeholder="Authors of Book" class="form-control">
+            <i class="zmdi zmdi-lock"></i></div>
+           
+        <div class="form-group container-login100-form-btn">
+            <button id="btn-signup" type="button" onclick="myFunction2()">
+                Submit
+                <i class="zmdi zmdi-arrow-right"></i>
+            </button>
+        </div>
+        
+    </form></div>
+    </div>
+
+    <div id="container">
+        <main id="main">
+            <a href="home.html" class="close-link text-white">
+            <div class="close">+</div></a>
+
+
+    <script>
+ //Your web app's Firebase configuration
+ var firebaseConfig = {
+    apiKey: "AIzaSyBnZbLNOu0U2FZu0gojjZUEjQ1ySpUcRMc",
+    authDomain: "fir-webapp-f668f.firebaseapp.com",
+    databaseURL: "https://fir-webapp-f668f.firebaseio.com",
+    projectId: "fir-webapp-f668f",
+    storageBucket: "fir-webapp-f668f.appspot.com",
+    messagingSenderId: "370071163897",
+    appId: "1:370071163897:web:18d84579ff8ab108d42328",
+    measurementId: "G-8CNC8QHM5V"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  firebase.auth.Auth.Persistence.LOCAL;
+  
+
+  $("#btn-login").click(function()
+  {
+      var email= $("#email").val();
+      var password= $("#password").val();
+      if (email != "" && password !="")
+      {
+          var result = firebase.auth().signInWithEmailAndPassword(email,password);
+          result.catch(function(error)
+      {
+          var errorcode =error.code;
+          var errormessage =error.message;
+
+          console.log(errorCode);
+          console.log(errorMessage);
+          window.alert("Message:" + errorMessage);
+      });
+    }
+else
+{
+    window.alert("Please fill out all fields");
+}   
+});
+
+
+
+
+$("#btn-signup").click(function()
+  {
+      var email= $("#email").val();
+      var password= $("#password").val();
+      var cPassword= $("#confirmPassword").val();
+      if (email != "" && password !="" && cPassword !="")
+      {
+          if(password == cPassword)
+          {
+            var result = firebase.auth().createUserWithEmailAndPassword(email,password);
+            
+            result.catch(function(error)
+        {
+            var errorcode =error.code;
+            var errormessage =error.message;
+  
+            console.log(errorCode);
+            console.log(errorMessage);
+            window.alert("Message:" + errorMessage);
+        });
+           }
+else
+{
+    window.alert("Password do not match with the Confirm Password");
+}
+      }
+else
+{
+    window.alert("Please fill out all fields");
+}   
+});
+
+
+
+$("#btn-resetPassword").click(function()
+  {
+     var auth = firebase.auth();
+     var email = $("#email").val();
+
+     if(email != "")
+     {
+      auth.sendPasswordResetEmail(email).then(function()
+     {
+        window.alert("Email has been sent to you. Please check and verify it.");
+     })
+     .catch(function(error)
+     {
+        var errorcode =error.code;
+        var errormessage =error.message;
+
+        console.log(errorCode);
+        console.log(errorMessage);
+        window.alert("Message:" + errorMessage);
+     });
+    }
+     else
+     {
+         window.alert("Please write your email first");
+     }
+});
+
+
+
+$("#btn-logout").click(function()
+  {
+      firebase.auth().signOut() 
+});
+
+
+
+$("#btn-update").click(function()
+  {
+    var admissionNumber= $("#admissionNumber").val();
+    var firstName= $("#firstName").val();
+    var lastName= $("#lastName").val();
+    var branch= $("#branch").val();
+    
+
+    var rootRef = firebase.database().ref().child("Users");
+    var userID = firebase.auth().currentUser.uid;
+    var usersRef = rootRef.child(userID);
+
+    if(admissionNumber!="" && firstName!="" && lastName!="" &&  branch!="")
+    {
+        var userData =
+        {
+            "admissionNumber":admissionNumber,
+            "firstName": firstName,
+            "lastName": lastName,
+            "branch": branch,
+            
+        };
+        usersRef.set(userData,function(error)
+        {
+            if(error)
+            {
+                var errorcode =error.code;
+                var errormessage =error.message;
+      
+                console.log(errorCode);
+                console.log(errorMessage);
+                window.alert("Message:" + errorMessage);
+            }
+            else
+            {
+                window.location.href = "home.html"
+            }
+
+        });
+    }
+    else
+{
+    window.alert("Please fill out all fields");  
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+    <script>
+    firebase.auth().onAuthStateChanged(function(user)
+    {
+        if(user)
+        {
+            var userID = firebase.auth().currentUser.uid;
+            firebase.database().ref('Users/'+ userID).once('value').then(function(snapshot)
+            {
+                if(snapshot.val())
+            {
+                window.location.href = "";
+            }
+                else
+            {
+                window.location.href = "";
+            }
+        });     
+        }
+    });
+
+    function myFunction2(){
+    var tit = document.getElementById("title").value;
+    var aut = document.getElementById("authors").value;
+    var sendingData = {"title":tit,"authors":aut};
+    var d = JSON.stringify(sendingData);
+    const request = new XMLHttpRequest();
+	request.open('PUT','https://apeslibrary.herokuapp.com/addtolocal/');
+    request.send(d);
+    request.onreadystatechange = function()
+    {
+        if(request.readyState==4){
+        var v = request.response;
+        window.alert(v);
+        }
+    }
+}
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link href="https://www.library-management.com/wp-content/themes/library/fonts/fonts.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.library-management.com/wp-content/themes/library/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.library-management.com/wp-content/themes/library/css/iziToast.min.css">
+<link rel="stylesheet" href="https://www.library-management.com/wp-content/themes/library/css/style5.css">
+<link rel="stylesheet" href="https://www.library-management.com/wp-content/themes/library/css/front.css">
+<link rel="stylesheet" href="https://www.library-management.com/wp-content/themes/library/css/animate.min.css"> -->
+
+<style>
+    body{
+        background-color: rgb(102, 51, 14);
+    }
+      ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  height: 80px;
+}
+li {
+  text-align: center;
+  color: aqua;
+  font-size: xx-large;
+  padding-top: 20px;
+}
+.ash
+{
+  color: aqua;
+  font-size:x-large;
+  padding-top: 0px;
+  float: right;
+}
+.asha
+{
+  color: aqua;
+  font-size:x-large;
+  padding-top: 0px;
+}
+
+a:link{
+  color: aqua;
+  text-decoration: none;
+}
+
+a:visited{
+  color: aqua;
+  text-decoration: none;
+}
+a:hover{
+  color: aqua;
+  text-decoration: none;
+}
+  a:active{
+  color: aqua;
+  text-decoration: none;
+}
+
+.example{
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 60%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+.bexample{
+    align-self: right;
+  float: left;
+  padding-left: 5px;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+.bexample:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+.bexample::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.row{
+    display: flex;
+}
+
+.column{
+    background-color: rgb(136, 94, 17);
+    flex: 25%;
+    max-width: 500px;
+    min-width: 499px;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.conta {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.haha{
+    padding-top: 50px;
+}
+
+.containerTab {
+  padding: 20px;
+  color: white;
+}
+
+.closebtn {
+  float: right;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+</style>
+        <title>HOME PAGE</title>
+    </head>
+    <body>
+            
+      <ul>
+          <li>
+              Welcome to our Library System
+              <div class="ash"><a href="https://apeslibrary.herokuapp.com/admin/">Admin</a></div>
+            </li> 
+      </ul>  
+              
+
+      <br>
+      <br>
+      <br>
+
+        <input class="example" type="text" placeholder="Search your book with us!" name="search" id = "mySearch">
+        <img onclick="startDictation()" src="https://i.imgur.com/cHidSVu.gif" />
+        <button class="bexample" onclick="myFunction()" type="submit"><i class="fa fa-search"></i></button>
+        
+        <br><br><br>
+        <div class="haha">
+        <img src="https://www.library-management.com/wp-content/themes/library/img/default_holder.jpg" style="width: 100%;">
+        </div>
+        <br><br><br>
+
+        <div id="my">
+        </div>
+
+        <ul>
+          <li>
+              Made with <span style="font-size:150%;color:red;">&hearts;</span> by team :- Apes Together Strong(
+              <a href="https://www.linkedin.com/in/codeaayu/">Aayush Ahuja, </a>
+              <a href="https://www.linkedin.com/in/bitaashna/">Aashna, </a>
+              <a href="https://www.linkedin.com/in/arijit-sur-937883179/">Arijit, </a>
+              <a href="https://www.linkedin.com/in/naveenmeena1999/">Naveen, </a>
+              and
+              <a href="https://www.linkedin.com/in/atul-kumar-6aa524161/">Atul. </a>
+              )
+            </li> 
+        </ul>
+
+        <script>
+  function myFunction(x){
+    //var x = document.getElementById("mySearch").value;
+    console.log(x);
+    var res;
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+      if(request.readyState == 4)
+        res = request.response;
+        console.log(res);
+        var fulltab = '<div class="row">';
+        for(var i=0;i<res.length;i++)
+        {
+            var tab = '<div class="column" onclick="openTab("b';
+            tab += (i+1).toString();
+            tab+= '");" >';
+            tab += '<img src="';
+            tab += res[i].thumbnails;
+            tab += '" style="width:70%">';
+            tab += '<div class="conta"><p>';
+            tab += res[i].title;
+            tab += '</p>';
+            tab += '</div></div>';
+            fulltab += tab;
+        
+
+        
+            
+        // for(var i=0;i<res.length;i++)
+        // {
+            var tab = '<div id="b';
+            tab += (i+1).toString();
+            tab += '" class="containerTab">';
+            // tab += '<span onclick="this.parentElement.style.display=';
+            // tab += "'none'";
+            // tab += '" class="closebtn">x</span>';
+            tab += '<p><b>Title</b><br>';
+            tab += res[i].title;
+            tab += '</p><p><b>Authors</b><br>';
+                tab += res[i].authors;
+            tab += '</p><p><b>Published Date</b><br>';
+                tab += res[i].publishedDate;
+            tab += '</p><p><b>Publishers</b><br>';
+                tab += res[i].publishers;
+            tab += '</p><p><b>Description</b><br>';
+                tab += res[i].description;
+            tab += '</p><p><b>Categories</b><br>';
+                tab += res[i].categories;
+            tab += '</p><p><b>Pages Count</b><br>';
+                tab += res[i].pageCount;
+            tab += '</p><p><b>Language</b><br>';
+                tab += res[i].language;
+            tab += '</p><p><b>Book Exist in Library</b><br>';
+            if(res[i].exist == 0)
+                tab += 'No!';
+            else tab += 'Yes!';
+            tab += '</p><p><b>Book issued or not</b><br>';
+            if(res[i].issued == -1)
+            tab += 'Book does not exist!';
+            else if (res[i].issued == 0)
+            tab+= "No!";
+            else tab += 'Yes!';
+            tab += '</p><b>QR code for preview of book</b><br>';
+            tab += '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=';
+            tab += res[i].previewLink;
+            tab += '">';
+            tab += '</p></div>';
+            fulltab += tab;
+            fulltab += '</div><br><br><br><div class=row>';
+        }
+        fulltab += '</div>';
+
+
+        
+       
+    document.getElementById("my").innerHTML = fulltab;
+    window.scrollTo(0,950);
+    }
+		request.responseType = 'json';
+		request.open('PUT','https://apeslibrary.herokuapp.com/actualapi/');
+		request.send(x);
+    
+  }
+
+  function openTab(tabName) {
+  var i, x;
+  x = document.getElementsByClassName("containerTab");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+ }
+ document.getElementById(tabName).style.display = "block";
+}
+
+
+
+
+function startDictation() {
+
+if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+  var recognition = new webkitSpeechRecognition();
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.lang = "en-US";
+  recognition.start();
+
+  recognition.onresult = function (e) {
+    document.getElementById('mySearch').value = e.results[0][0].transcript;
+    console.log(e.results[0][0].transcript);
+
+    recognition.stop();
+    myFunction(e.results[0][0].transcript);
+
+  };
+  recognition.onerror = function(e) {
+    recognition.stop();
+  }
+
+  function myFunction2(x)
+  {
+    var res;
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+      if(request.readyState == 4)
+        res = request.response;
+        console.log(res);
+        var tab = "<table>";
+     tab += "<tr><td>Title</td><td>authors</td><td>publishers</td><td>published date</td><td>description</td>";
+		 for(var i=0;i<res.length;i++)
+	  tab += "<tr><td>" + res[i].title + "  </td><td>"+ res[i].authors+ "  </td><td>"+ res[i].publishers +"  </td><td>"+res[i].publishedDate+"  </td><td>"+res[i].description+"</td>";
+		tab += "</table>";
+    document.getElementById("my").innerHTML = tab;
+    }
+		request.responseType = 'json';
+		request.open('PUT','https://apeslibrary.herokuapp.com/actualapi/');
+		request.send(x);
+    
+  }
+}
+}
+
+            </script>
+</body>
+</html>
