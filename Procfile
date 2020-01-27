@@ -1,1 +1,0 @@
-web: gunicorn apes.wsgi --log-file -
